@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Events: event scheduler</title>
+
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Event scheduler</a>
+            </div><!-- .END navbar header -->
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Users <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li role="presentation" class="dropdown-header">User management:</li>
+                            <li><a href="users.html"><i class="fa fa-user"></i> Users</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li role="presentation" class="dropdown-header">Authority management:</li>
+                            <li><a href="authorities.html"><i class="fa fa-lock"></i> Authorities</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="events.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Events <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li role="presentation" class="dropdown-header">Event management:</li>
+                            <li><a href="events.html"><i class="fa fa-calendar"></i> Events</a></li>
+                            <li><a href="event_points.html"><i class="fa fa-circle-o"></i> Event points</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li role="presentation" class="dropdown-header">Simple planner:</li>
+                            <li><a href="scheduler.html"><i class="fa fa-paper-plane"></i> Scheduler</a></li>
+                        </ul>
+                    </li>
+                </ul><!-- .END left navbar -->
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Exit</a></li>
+                    <!-- <button type="button" class="btn btn-default navbar-btn">Sign out</button> -->
+                </ul><!-- .END right navbar -->
+            </div><!-- .END navbar collapse-->
+        </div><!-- .END container -->
+    </nav><!-- .END navbar -->
+
+    <!-- div class="container">
+        <div class="alert alert-success" role="alert">
+            Event successfully deleted
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="alert alert-info" role="alert">
+            Event successfully added
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+    </div> --><!-- .END container block -->
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="events.html">Home</a></li>
+            <li class="active">Events</li>
+        </ol><!-- .END breadcrumb -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="line-height: 30px;">Events</h3>
+                    </div><!-- .END panel header -->
+
+                    <div class="panel-body">
+                        <div class="col-md-4">
+                            <div class="container-fluid">
+                                <form class="form-events">
+                                    <div class="form-group">
+                                        <label for="eventPoints">Event points:</label>
+                                        <select name="eventPoints" class="form-control">
+                                          <option value="1">Town Hall</option>
+                                          <option value="2">Imaguru</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label for="exampleInputName2">Weekday:</label>
+                                        <select class="form-control">
+                                          <option>1: Monday</option>
+                                          <option>2: Tuesday</option>
+                                          <option>3: Wednesday</option>
+                                          <option>4: Thursday</option>
+                                          <option>5: Friday</option>
+                                          <option>6: Saturday</option>
+                                          <option>7: Sunday</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label for="description">Event description:</label>
+                                        <input type="text" name="description" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="startDate">Start date:</label>
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" name="startDate" class="form-control">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="endDate">End date:</label>
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" name="endDate" class="form-control">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-paper-plane"></i> Send event</button>
+                                </form>
+                            </div>
+                        </div><!-- END col-md-4 -->
+
+                        <div class="col-md-8">
+                            <div class="timeline">
+                                <div class="line text-muted"></div>
+                                    <form>
+                                        <article class="panel panel-default">
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                            </div>
+
+                                            <div class="panel-heading">
+                                                <h2 class="panel-title">Town Hall</h2>
+                                            </div>
+
+                                            <div class="panel-body">
+                                                Description
+                                            </div>
+
+                                            <div class="panel-footer">
+                                                <input type="hidden" name="id" value="1" />
+                                                <button type="submit" class="btn btn-default btn-sm" value="Delete"><em class="fa fa-trash"></em></button>
+                                            </div>
+                                        </article>
+                                    </form>
+                                    <form>
+                                        <article class="panel panel-default">
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                            </div>
+
+                                            <div class="panel-heading">
+                                                <h2 class="panel-title">Town Hall</h2>
+                                            </div>
+
+                                            <div class="panel-body">
+                                                Description
+                                            </div>
+
+                                            <div class="panel-footer">
+                                                <input type="hidden" name="id" value="2" />
+                                                <button type="submit" class="btn btn-default btn-sm" value="Delete"><em class="fa fa-trash"></em></button>
+                                            </div>
+                                        </article>
+                                    </form>
+                                    <div class="separator text-muted">
+                                        <time class="">3/25/2015</time>
+                                    </div>
+
+                                    <form>
+                                        <article class="panel panel-default">
+                                            <div class="panel-heading icon">
+                                                <i class="glyphicon glyphicon-plus"></i>
+                                            </div>
+
+                                            <div class="panel-heading">
+                                                <h2 class="panel-title">Town Hall</h2>
+                                            </div>
+
+                                            <div class="panel-body">
+                                                Description
+                                            </div>
+
+                                            <div class="panel-footer">
+                                                <input type="hidden" name="id" value="3" />
+                                                <button type="submit" class="btn btn-default btn-sm" value="Delete"><em class="fa fa-trash"></em></button>
+                                            </div>
+                                        </article>
+                                    </form>
+                                    <div class="separator text-muted">
+                                        <time class="">4/25/2015</time>
+                                    </div>
+                                </div>
+                        </div><!-- END col-md-8 -->
+                    </div><!-- .END panel body -->
+                </div><!-- .END panel -->           
+            </div>
+        </div><!-- .END row block -->
+    </div><!-- .END container block -->
+
+    <!-- Include JS scripts -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+</body>
+</html>

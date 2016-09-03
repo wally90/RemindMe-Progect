@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: EventRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.631 sec <<< FAILURE! - in EventRepositoryTest
+testAdd(EventRepositoryTest)  Time elapsed: 3.283 sec  <<< ERROR!
+com.event.scheduler.exception.repository.ErrorQueryException: Failed to execute the request for to add a new event entity into database!
+	at com.event.scheduler.repository.EventRepository.add(EventRepository.java:47)
+	at EventRepositoryTest.testAdd(EventRepositoryTest.java:42)
+
